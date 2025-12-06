@@ -30,11 +30,9 @@ def part_1():
 def part_2():
     answer = 0
     val = 50
-    prev_val = val
 
-    with open("test_input.txt") as f:
+    with open("input.txt") as f:
         for index, line in enumerate(f):
-            negative = False
             print(f"{index} entry, current value is {val}, current input is {line}")
             direction = line[0]
             print(f"This is the direction {direction}")
@@ -73,7 +71,7 @@ def part_2():
     print(answer)
 
 def main():
-    part_1()
+    part_2()
 
 if __name__ == "__main__":
     main()
