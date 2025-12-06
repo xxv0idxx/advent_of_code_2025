@@ -52,15 +52,16 @@ def part_2():
             extra_answers = 0
             if 0 > val:#tracking if we are negative
                 active_val = abs(val) #copy the absolute value of the of the current value to play with
-                extra_answers = 1 #make sure to track the spin past 0 incase it is only 1 spin and the value remains unders 99 as an absolute
+                if 99 > active_val:
+                    extra_answers = 1 #make sure to track the spin past 0 incase it is only 1 spin and the value remains unders 99 as an absolute
             if active_val > 99: #the lock spins past "0" an amt_spin of times rather than just once
                 # if prev_val > val: #we became negative
                 #     amt_spin = abs(val) - prev_val
                 # else: #we went above 99
                 #     amt_spin = val - prev_val
                 extra_answers = active_val // 100
-                answer = answer + extra_answers
                 print(f"We hit 0 this many times while rotating: {extra_answers}")
+            answer = answer + extra_answers
             val = val % 100
             print(f"This is the finalized value {val}")
             match val:
