@@ -60,20 +60,12 @@ def part_2():
                 # else: #we went above 99
                 #     amt_spin = val - prev_val
                 extra_answers = active_val // 100
-                if val % 100 == 0 and extra_answers > 0:
-                    extra_answers = extra_answers - 1
             print(f"We hit 0 this many times while rotating: {extra_answers}")
             answer = answer + extra_answers
             val = val % 100
+            if val == 0 and extra_answers == 0:
+                answer += 1
             print(f"This is the finalized value {val}")
-            match val:
-                case 0:
-                    answer += 1
-                    prev_hit = True
-                    print("Answer hit")
-                case _:
-                    prev_hit = False
-                    pass
     print(answer)
 
 def main():
