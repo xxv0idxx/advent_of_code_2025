@@ -30,6 +30,7 @@ def part_1():
 def part_2():
     answer = 0
     val = 50
+    prev_val = val
 
     with open("input.txt") as f:
         for index, line in enumerate(f):
@@ -48,7 +49,8 @@ def part_2():
             print(f"This is the val after altering {val}")
             active_val = val
             extra_answers = 0
-            if 0 > val:#tracking if we are negative
+            #edge case where we had zero last time!!!!!
+            if 0 > val and prev_val != 0:#tracking if we are negative
                 active_val = abs(val) #copy the absolute value of the of the current value to play with
                 if 99 > active_val:
                     extra_answers = 1 #make sure to track the spin past 0 incase it is only 1 spin and the value remains unders 99 as an absolute
@@ -58,10 +60,11 @@ def part_2():
                 # else: #we went above 99
                 #     amt_spin = val - prev_val
                 extra_answers = active_val // 100
-                print(f"We hit 0 this many times while rotating: {extra_answers}")
+            print(f"We hit 0 this many times while rotating: {extra_answers}")
             answer = answer + extra_answers
             val = val % 100
             print(f"This is the finalized value {val}")
+            prev_val = val
             match val:
                 case 0:
                     answer += 1
