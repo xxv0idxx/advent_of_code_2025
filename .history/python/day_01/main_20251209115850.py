@@ -31,7 +31,7 @@ def part_2():
     answer = 0
     val = 50
 
-    with open("input.txt") as f:
+    with open("test_input.txt") as f:
         for line in f:
             print("################################")
             print("LOOP START")

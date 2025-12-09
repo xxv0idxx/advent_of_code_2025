@@ -31,7 +31,7 @@ def part_2():
     answer = 0
     val = 50
 
-    with open("input.txt") as f:
+    with open("test_input.txt") as f:
         for line in f:
             print("################################")
             print("LOOP START")
@@ -58,7 +58,7 @@ def part_2():
                         print(f"HIT!!!! when i is {i}")
                         answer = answer + 1
             else:
-                 for i in range(old_val, val, -1):
+                 for i in reversed(range(old_val, val)):
                     entered_loop = True
                     print(f"i's current value: {i}")
                     if i % 100 == 0 and i != old_val:
